@@ -27,6 +27,15 @@ const App = () => {
       return newIndex;
     });
   };
+
+  const handleRandom = () => {
+    const random = Math.floor(Math.random() * data.length);
+    if(random == index) {
+      return handleRandom();
+    }
+    setIndex(random);
+    
+  };
   console.log(name);
   return (
     <main>
@@ -50,6 +59,9 @@ const App = () => {
           <FaChevronRight></FaChevronRight>
         </button>
       </div>
+      <button className='btn btn-hipster' onClick={handleRandom}>
+        Surprise ME
+      </button>
     </main>
   );
 };
